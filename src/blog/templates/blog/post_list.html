@@ -13,9 +13,9 @@
                 <h5 class="card-title"><a href="{% url 'blog:detail' obj.slug %}">{{obj.title}}</a></h5>
                 <p class="card-text">{{obj.content|truncatechars:20}}</p>
                 <p>
-                    <span><i class="far fa-comment-alt ml-2"></i> </span>
-                    <span><i class="fas fa-eye ml-2"></i> </span>
-                    <span><i class="far fa-heart ml-2"></i> </span>
+                    <span><i class="far fa-comment-alt ml-2"></i> {{ obj.comment_count }}</span>
+                    <span><i class="fas fa-eye ml-2"></i> {{ obj.view_count }}</span>
+                    <span><i class="far fa-heart ml-2"></i> {{ obj.like_count }}</span>
                 <p class="card-text"><small>
                         Posted {{ obj.publish_date|timesince }} ago.
                     </small>
