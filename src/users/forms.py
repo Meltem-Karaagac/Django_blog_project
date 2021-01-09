@@ -2,6 +2,7 @@ from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 from django.forms import fields
+from .models import Profile
 
 
 class RegistrationForm(UserCreationForm):
@@ -23,3 +24,15 @@ class RegistrationForm(UserCreationForm):
     #     if "a" in name:
     #         raise forms.ValidationError("Your name includes A")
     #     return name
+
+
+class ProfileUpdateForm(forms.ModelForm):
+    class Meta:
+        model = Profile
+        fields = ("image", "bio")
+
+
+class UserUpdateForm(forms.ModelForm):
+    class Meta:
+        model = User
+        fields = ("username", "email")

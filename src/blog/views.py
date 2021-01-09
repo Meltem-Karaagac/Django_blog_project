@@ -1,4 +1,4 @@
-from django.http.response import HttpResponse
+# from django.http.response import HttpResponse
 from django.shortcuts import get_object_or_404, redirect, render
 from .models import Post, Like
 from .forms import CommentForm, PostForm
@@ -14,8 +14,8 @@ def post_list(request):
 
 def post_create(request):
     # form = PostForm(request.POST or None, request.FILES or None)
-    if request.method == "GET":
-        form = PostForm()
+
+    form = PostForm()
     if request.method == "POST":
         form = PostForm(request.POST, request.FILES)
         if form.is_valid():
